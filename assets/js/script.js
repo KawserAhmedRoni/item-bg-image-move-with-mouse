@@ -82,51 +82,88 @@ CSS TABLE OF CONTENTS
 			ease: "none",
 		});
 	});
-	// Gsap Animation area end here ***
 
-	let service__items_3 = gsap.utils.toArray(".service_animation");
-	let service__items_heading = gsap.utils.toArray(".service_animation h3");
-	let service__items_content = gsap.utils.toArray(
-		".service_animation .service__content-3"
-	);
+	
 
-	service__items_3.forEach((service_item, i) => {
-		gsap.set([service__items_heading[i], service__items_content[i]], {
-			x: -30,
-			opacity: 0,
-		});
-
-		let service3_timeline = gsap.timeline({
-			scrollTrigger: {
-				trigger: service_item,
-				start: "top center+=200",
-				markers: false,
-			},
-		});
-
-		service3_timeline.to(service__items_heading[i], {
-			x: 0,
-			opacity: 1,
-			ease: "power2.out",
-			duration: 1.5,
-			stagger: {
-				each: 0.2,
-			},
-		});
-		service3_timeline.to(
-			service__items_content[i],
-			{
-				x: 0,
-				opacity: 1,
-				ease: "power2.out",
-				duration: 1.5,
-				stagger: {
-					each: 0.2,
-				},
-			},
-			"-=1"
-		);
+	let endTl = gsap.timeline({
+		repeat: -1,
+		delay: 0.5,
+		scrollTrigger: {
+			trigger: ".end",
+			start: "bottom 100%-=50px",
+		},
 	});
+	gsap.set(".end", {
+		opacity: 0,
+	});
+	gsap.to(".end", {
+		opacity: 1,
+		duration: 1,
+		ease: "power2.out",
+		scrollTrigger: {
+			trigger: ".end",
+			start: "bottom 100%-=50px",
+			once: true,
+		},
+	});
+	let mySplitText = new SplitText(".end", { type: "words,chars" });
+	let chars = mySplitText.chars;
+	let endGradient = chroma.scale(["#F9D371", "#F47340", "#EF2F88", "#8843F2"]);
+	endTl.to(chars, {
+		duration: 0.5,
+		scaleY: 0.6,
+		ease: "power3.out",
+		stagger: 0.04,
+		transformOrigin: "center bottom",
+	});
+	endTl.to(
+		chars,
+		{
+			yPercent: -20,
+			ease: "elastic",
+			stagger: 0.03,
+			duration: 0.8,
+		},
+		0.5
+	);
+	endTl.to(
+		chars,
+		{
+			scaleY: 1,
+			ease: "elastic.out(2.5, 0.2)",
+			stagger: 0.03,
+			duration: 1.5,
+		},
+		0.5
+	);
+	endTl.to(
+		chars,
+		{
+			color: (i, el, arr) => {
+				return endGradient(i / arr.length).hex();
+			},
+			ease: "power2.out",
+			stagger: 0.03,
+			duration: 0.3,
+		},
+		0.5
+	);
+	endTl.to(
+		chars,
+		{
+			yPercent: 0,
+			ease: "back",
+			stagger: 0.03,
+			duration: 0.8,
+		},
+		0.7
+	);
+	endTl.to(chars, {
+		color: "#c9f31d",
+		duration: 1.4,
+		stagger: 0.05,
+	});
+	// Gsap Animation area end here ***
 
 	const serviceImgItem = document.querySelectorAll(".service__item-3");
 

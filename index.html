@@ -27,7 +27,32 @@
     <!-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-       
+        .service__item-3 {
+            position: relative;
+        }
+
+        .service__hover-3 {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position-x: 75%;
+            opacity: 0;
+            -webkit-transition: opacity 0.3s, -webkit-transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: opacity 0.3s, -webkit-transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: opacity 0.3s, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: opacity 0.3s, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            margin: -200px 0 0 -150px;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .service__item-3:hover .service__hover-3 {
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -40,25 +65,11 @@
     <main>
 
         <!-- Banner area start here -->
-        <section class="banner-area">
-            <div class="container">
-                <div class="banner-wrp">
-                    <h1>Hellow New Project</h1>
-                    <h2>Hellow New Project</h2>
-                    <h3>Hellow New Project</h3>
-                    <h4>Hellow New Project</h4>
-                    <h5>Hellow New Project</h5>
-                    <h6>Hellow New Project</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, inventore. Aliquam rerum maxime,
-                        dicta ex commodi at debitis officiis reiciendis exercitationem totam asperiores tempore nulla
-                        illum tenetur, possimus minus saepe recusandae.</p>
-                </div>
-            </div>
-        </section>
+
         <!-- Banner area end here -->
 
         <!-- Service area start -->
-        <section class="service__area-3 pb-150">
+        <section class="service__area-3 mt-200 mb-200">
             <div class="container">
                 <div class="row">
                     <div class="col-xxl-12">
@@ -77,8 +88,8 @@
 
                 <div class="row">
                     <div class="col-xx-12">
-                        <div class="service__list-3 position-relative">
-                            <div class="service__item-3 service_animation">
+                        <div class="service__list-3">
+                            <div class="service__item-3  ">
                                 <h3><a href="service-details.html" class="service__title-3">Search Engine
                                         <br>Optimization</a>
                                 </h3>
@@ -101,10 +112,11 @@
                                     </div>
                                 </div>
 
-                                <div class="service__hover-3" data-background="assets/images/1.jpg"></div>
+                                <div class="service__hover-3"
+                                    style="background-image: url(assets/imgs/service/3/1.jpg);"></div>
                             </div>
 
-                            <div class="service__item-3 service_animation">
+                            <div class="service__item-3  ">
                                 <h3><a href="service-details.html" class="service__title-3 ">Email <br>Marketing</a>
                                 </h3>
                                 <div class="service__content-3">
@@ -126,10 +138,11 @@
                                     </div>
                                 </div>
 
-                                <div class="service__hover-3" style="background-image: url(assets/images/2.jpg);"></div>
+                                <div class="service__hover-3"
+                                    style="background-image: url(assets/imgs/service/3/2.png);"></div>
                             </div>
 
-                            <div class="service__item-3 service_animation">
+                            <div class="service__item-3  ">
                                 <h3 class=""><a href="service-details.html" class="service__title-3">COntent
                                         <br>Marketing</a></h3>
                                 <div class="service__content-3">
@@ -151,10 +164,11 @@
                                     </div>
                                 </div>
 
-                                <div class="service__hover-3" style="background-image: url(assets/images/3.jpg);"></div>
+                                <div class="service__hover-3"
+                                    style="background-image: url(assets/imgs/service/3/3.png);"></div>
                             </div>
 
-                            <div class="service__item-3 service_animation">
+                            <div class="service__item-3  ">
                                 <h3 class=""><a href="service-details.html" class="service__title-3">Social
                                         <br>Marketing</a></h3>
                                 <div class="service__content-3">
@@ -176,7 +190,8 @@
                                     </div>
                                 </div>
 
-                                <div class="service__hover-3" style="background-image: url(assets/images/5.jpg);"></div>
+                                <div class="service__hover-3"
+                                    style="background-image: url(assets/imgs/service/3/4.png);"></div>
                             </div>
 
                             <div class="service3__img-wrap">
@@ -189,6 +204,15 @@
             </div>
         </section>
         <!-- Service area end -->
+
+        <!-- Talk area start -->
+        <section class="pt-120 pb-120">
+            <div class="container">
+                <h1 class="end" style="font-size: 300px; font-weight: 700;">Let’s talk</h1>
+            </div>
+        </section>
+        <!-- Talk area end -->
+
 
     </main>
 
@@ -218,12 +242,16 @@
     <script src="assets/js/parallax.js"></script>
     <!-- Splitting Js -->
     <script src="assets/js/splitting.js"></script>
+    <!-- Chroma min Js -->
+    <script src="assets/js/chroma.min.js"></script>
     <!-- Waypoints Js -->
     <script src="assets/js/jquery.waypoints.js"></script>
     <!-- Gsap -->
     <script src="assets/js/gsap/gsap.min.js"></script>
     <script src="assets/js/gsap/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsap/ScrollToPlugin.min.js"></script>
     <script src="assets/js/gsap/ScrollSmoother.min.js"></script>
+    <script src="assets/js/gsap/SplitText.min.js"></script>
     <!-- Script Js -->
     <script src="assets/js/script.js"></script>
 </body>
